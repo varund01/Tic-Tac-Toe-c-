@@ -25,7 +25,6 @@ int outline()
     char s;
     //outline
     printf("#####################TIC TAC TOE#######################\n");
-    printf("                                           VARUN DUDUKU");
     printf("\n\n\n\n\n\n           press enter to continue");
     scanf("%c",&s);
     if(s=='\n')
