@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include <cstdlib>
 #include <stdio.h>
 using namespace std;
@@ -12,12 +12,11 @@ void start();
 void structure();
 void game();
 int result();
+unordered_set<int> already_choosen;
 char arr[3][3]={' ',' ',' ',' ',' ',' ',' ',' ',' '};
 int main()
 {
     int c=outline();
-
-
     return 0;
 }
 int outline()
@@ -52,12 +51,11 @@ int outline()
 }
 void instructions()
 {
-    //instructions
     printf("***********************INSTRUCTIONS*************************\n");
     printf("it is 2 players game\n");
     printf("Each player should choice their own character \n");
     structure();
-    printf("\nThis is the structure of game and you need press the values on the boxes to insert you character");
+    printf("\nThis is the structure of game and you need press the values on the boxes to insert you character\n");
     printf("enter y to continue\n");
     char d;
     cin>>d;
@@ -112,23 +110,34 @@ void shape()
     printf("    |    |    \n");
     game();
 }
-    void game()
-    {char x;
+void game()
+{
+    char x;
     int t;
     int i;
     for(i=0;i<9;i++)
     {
 
-    if(i%2==0)
+        if(i%2==0)
         {
-            //cout<<"first"<<endl;
             if(result())
             {
                 cout<<"player 2 won the match"<<endl;
                 exit(0);
             }
-          printf("Player 1 turn:");
-           cin>>t;
+            printf("Player 1 turn:");
+            bool flag=true;
+            do{
+                if(flag==false){
+                    system("cls");
+                    shape1();
+                    cout<<"Player 2 already choosen that!!"<<endl;
+                    cout<<"choose another option"<<endl;
+
+                }
+                cin>>t;
+                flag=false;
+            }while(already_choosen.find(t)!=already_choosen.end());
             x=a;
 
         }
@@ -140,11 +149,22 @@ void shape()
                 exit(0);
             }
             printf("player 2 turn:");
-            cin>>t;
+            bool flag=true;
+            do{
+                if(flag==false){
+                    system("cls");
+                    shape1();
+                    cout<<"Player 1 already choosen that!!"<<endl;
+                    cout<<"choose another option"<<endl;
+
+                }
+                cin>>t;
+                flag=false;
+            }while(already_choosen.find(t)!=already_choosen.end());
             x=b;
 
         }
-        //printf("%c",t);
+        already_choosen.insert(t);
         switch(t)
         {
             case 1:arr[0][0]=x;break;
