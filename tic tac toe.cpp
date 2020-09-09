@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-#include <cstdlib>
-#include <stdio.h>
 using namespace std;
 char a;
 char b;
@@ -131,13 +129,19 @@ void game()
                 if(flag==false){
                     system("cls");
                     shape1();
-                    cout<<"Player 2 already choosen that!!"<<endl;
-                    cout<<"choose another option"<<endl;
+                    
+                    if(t<1||t>9){
+                        cout<<"Choose correct place from 1 to 9"<<endl;
+                    }
+                    else{
+                        cout<<"Player 2 already choosen that!!"<<endl;
+                        cout<<"choose another option"<<endl;
+                    }
 
                 }
                 cin>>t;
                 flag=false;
-            }while(already_choosen.find(t)!=already_choosen.end());
+            }while((t<1||t>9)||already_choosen.find(t)!=already_choosen.end());
             x=a;
 
         }
@@ -154,13 +158,19 @@ void game()
                 if(flag==false){
                     system("cls");
                     shape1();
-                    cout<<"Player 1 already choosen that!!"<<endl;
-                    cout<<"choose another option"<<endl;
+                    
+                    if(t<1||t>9){
+                        cout<<"Choose correct place from 1 to 9"<<endl;
+                    }
+                    else{
+                        cout<<"Player 2 already choosen that!!"<<endl;
+                        cout<<"choose another option"<<endl;
+                    }
 
                 }
                 cin>>t;
                 flag=false;
-            }while(already_choosen.find(t)!=already_choosen.end());
+            }while((t<1||t>9)||already_choosen.find(t)!=already_choosen.end());
             x=b;
 
         }
